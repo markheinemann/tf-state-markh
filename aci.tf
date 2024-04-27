@@ -20,8 +20,15 @@ terraform {
   backend "s3" {
     bucket = "tf-state-markh"
     region = "us-east-1"
+    key = "tf-state-markh/terraform.tfstate"
     # Environment variable for key is AWS_BUCKET_KEY_NAME
   }
 }
 
 #test3#
+
+
+# Tenant
+resource "aci_tenant" "vanilla_test" {
+    name = "vanilla_test"
+}
