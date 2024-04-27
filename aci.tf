@@ -25,3 +25,9 @@ terraform {
 }
 
 #test3#
+
+
+# Tenant
+resource "aci_tenant" "vanilla_test" {
+    name = "vanilla_test"
+}
