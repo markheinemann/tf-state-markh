@@ -6,9 +6,22 @@ provider "aci" {
 }
 
 terraform {
+  required_providers {
+    aci = {
+      source  = "CiscoDevNet/aci"
+      version = "2.11.1"
+    }
+  }
+}
+
+
+
+terraform {
   backend "s3" {
     bucket = "tf-state-markh"
     region = "us-east-1"
     # Environment variable for key is AWS_BUCKET_KEY_NAME
   }
 }
+
+#test3#
