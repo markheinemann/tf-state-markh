@@ -95,35 +95,35 @@ jobs:
         if: steps.plan.outcome == 'failure'
         run: exit 1
 
-#   apply:
-#     runs-on: ubuntu-latest
-#     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-#     steps:
-#       - name: Checkout Repository
-#         uses: actions/checkout@v4
+  apply:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
       
-#       - name: Setup Terraform
-#         uses: hashicorp/setup-terraform@v3
-#         with:
-#           terraform_version: 1.2.5
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.2.5
       
-#       - name: Configure AWS credentials from AWS account
-#         uses: aws-actions/configure-aws-credentials@v4
-#         with:
-#           role-to-assume: ${{ secrets.AWS_ROLE }}
-#           aws-region: ${{ secrets.AWS_REGION }}
-#           role-session-name: GitHub-OIDC-TERRAFORM
+      - name: Configure AWS credentials from AWS account
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE }}
+          aws-region: ${{ secrets.AWS_REGION }}
+          role-session-name: GitHub-OIDC-TERRAFORM
 
-#       - name: Terraform Init
-#         id: init
-#         env:
-#           AWS_BUCKET_KEY_NAME: ${{ secrets.AWS_BUCKET_KEY_NAME }}
-#         run: terraform init -backend-config="key=${AWS_BUCKET_KEY_NAME}" 
+      - name: Terraform Init
+        id: init
+        env:
+          AWS_BUCKET_KEY_NAME: ${{ secrets.AWS_BUCKET_KEY_NAME }}
+        run: terraform init -backend-config="key=${AWS_BUCKET_KEY_NAME}" 
 
-#       - name: Terraform Apply
-#         id: apply
-#         env:
-#           TF_VAR_aci_username: ${{ secrets.ACI_USERNAME }}
-#           TF_VAR_aci_password: ${{ secrets.ACI_PASSWORD }}
-#         run: terraform apply -auto-approve
+      - name: Terraform Apply
+        id: apply
+        env:
+          TF_VAR_aci_username: ${{ secrets.ACI_USERNAME }}
+          TF_VAR_aci_password: ${{ secrets.ACI_PASSWORD }}
+        run: terraform apply -auto-approve
       
