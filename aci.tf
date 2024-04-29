@@ -1,6 +1,6 @@
 provider "aci" {
-  username = "admin"
-  password = "!v3G@!4@Y"
+  # username = "admin"
+  # password = "!v3G@!4@Y"
   url      = "https://sandboxapicdc.cisco.com/"
   insecure = true
 }
@@ -29,6 +29,6 @@ terraform {
 
 
 # Tenant
-resource "aci_tenant" "vanilla_test2" {
-  name = "vanilla_test2"
+resource "aci_tenant" "vanilla_test3" {
+  name = "vanilla_test3"
 }
