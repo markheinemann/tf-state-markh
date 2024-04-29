@@ -1,6 +1,6 @@
 provider "aci" {
-  # username = "admin"
-  # password = "!v3G@!4@Y"
+  username = "admin"
+  password = "!v3G@!4@Y"
   url      = "https://sandboxapicdc.cisco.com/"
   insecure = true
 }
