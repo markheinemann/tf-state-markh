@@ -10,6 +10,6 @@ terraform {
 
 
 # cretae  a new Tenant
-resource "aci_tenant" "vanilla_test3" {
-  name = "vanilla_test4"
+resource "aci_tenant" "vanilla_test5" {
+  name = "vanilla_test5"
 }
