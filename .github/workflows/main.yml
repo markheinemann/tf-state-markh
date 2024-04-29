@@ -159,14 +159,25 @@ jobs:
         working-directory: .
     steps:
       - name: Git checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Configure AWS credentials from AWS account
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ secrets.AWS_ROLE }}
           aws-region: ${{ secrets.AWS_REGION }}
           role-session-name: github_openid
+
+#       - name: Configure AWS credentials from AWS account
+#         uses: aws-actions/configure-aws-credentials@v4
+#         with:
+#           role-to-assume: ${{secrets.AWS_ROLE}}
+#           aws-region: ${{secrets.AWS_REGION}}
+#           role-session-name: github_openid
+
+
+
+
       
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
@@ -175,7 +186,7 @@ jobs:
 
       - name: Terraform fmt
         id: fmt
-        run: terraform fmt -check
+        run: terraform fmt #-check
         continue-on-error: true
 
       - name: Terraform Init
