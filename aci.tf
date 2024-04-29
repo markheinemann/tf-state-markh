@@ -13,7 +13,7 @@ terraform {
     }
   }
 }
-
+#
 
 
 terraform {
@@ -29,6 +29,6 @@ terraform {
 
 
 # Tenant
-resource "aci_tenant" "vanilla_test" {
-    name = "vanilla_test"
+resource "aci_tenant" "vanilla_test1" {
+    name = "vanilla_test1"
 }
