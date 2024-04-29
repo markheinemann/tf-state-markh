@@ -29,6 +29,6 @@ terraform {
 
 
 # Tenant
-resource "aci_tenant" "vanilla_test2" {
-  name = "vanilla_test2"
+resource "aci_tenant" "vanilla_test3" {
+  name = "vanilla_test3"
 }
